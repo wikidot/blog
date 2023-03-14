@@ -2,7 +2,26 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
+    <script>
+function fullScreen1(theURL) {
+    window.open(theURL, '', 'fullscreen=yes,scrollbars=auto,menubar=no,toolbar=no,location=no,status=no');
+}
+function fullScreen2(theURL) {
+    window.open(theURL, '','height='+screen.height+',width='+screen.width+',screenX=0,screenY=0,left=0,top=0,resizable=no');
+}
+//Ищем правильный метод
+function fullscreen3(element) {
+    if(element.requestFullScreen) {
+        element.requestFullScreen();
+    } else if(element.mozRequestFullScreen) {
+        element.mozRequestFullScreen();
+    } else if(element.webkitRequestFullScreen) {
+        element.webkitRequestFullScreen();
+    }
+}
+</script>
+
+	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" class="include" id="dynamic-fonts" href="https://fonts.googleapis.com/css?family=Roboto|Roboto|Roboto+Condensed|Roboto+Condensed|Roboto+Condensed|Roboto+Condensed|Oswald|Open+Sans|Oswald|Noto+Sans+JP|Noto+Sans+JP|Open+Sans|Roboto|Roboto|Roboto|Poppins|Roboto|Open+Sans|Roboto|Roboto|Roboto|Roboto|Roboto|Roboto|Roboto|Roboto">
