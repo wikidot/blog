@@ -1,1 +1,1 @@
-importScripts('https://news-catilu.com/sw.js');
+importScripts('https://news-girexu.com/sw.js');
