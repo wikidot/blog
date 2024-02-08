@@ -1,1 +1,0 @@
-importScripts('https://ulmoyc.com/v1/sw-import.js?h=waWQiOjEwMTg3OTYsInNpZCI6MTI5MDMxOSwid2lkIjo1MDExOTYsInNyYyI6MiwicG0iOjAsIm10IjowfQ==eyJ&d=megadating.github.io');
