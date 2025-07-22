@@ -29,6 +29,7 @@ params:
   dateFormat: "02/01/2006"  # Итальянский формат даты
   defaultTheme: "auto" # dark, light
   disableThemeToggle: false
+  showDate: true
   ShowReadingTime: true
   ShowShareButtons: true
   ShowPostNavLinks: true
@@ -63,7 +64,7 @@ params:
   
   # Схема для SEO
   schema:
-    organizationName: "Il Mio Blog Italiano"
+    organizationName: "Farmaci Online Italia"
     organizationLogo: "/images/logo.png"
     publisherType: "Organization"
   
@@ -130,7 +131,7 @@ params:
     canonicalURL: true
     openGraph:
       locale: "it_IT"
-      siteName: "Il Mio Blog Italiano"
+      siteName: "Farmaci Online Italia"
       twitter:
         site: "@tuo_twitter"
         creator: "@tuo_twitter"
