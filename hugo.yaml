@@ -137,7 +137,7 @@ params:
   
   # Кастомизация PaperMod
   customCSS: 
-    - "css/custom.css"
+    - "css/extended/custom.css"
   customJS: 
     - "js/custom.js"
     
