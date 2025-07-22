@@ -1,0 +1,12 @@
+{{ $count := .Get 0 | default 5 }}
+<div class="recent-posts">
+  <h3>Ultimi {{ $count }} articoli</h3>
+  <ul>
+    {{ range first $count (where site.RegularPages "Type" "posts") }}
+    <li>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      <span class="post-date">{{ .Date.Format "02/01/2006" }}</span>
+    </li>
+    {{ end }}
+  </ul>
+</div>

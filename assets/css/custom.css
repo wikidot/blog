@@ -1,0 +1,45 @@
+/* assets/css/custom.css */
+
+/* Основной текст */
+body {
+  color: #444444;
+}
+
+/* Заголовки */
+h1, h2, h3, h4, h5, h6 {
+  color: #333333;
+}
+
+/* Ссылки */
+a {
+  color: #0055A5;
+  border-bottom: 1px solid #0055A5;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #222222;
+  text-decoration: underline;
+}
+
+/* Код и монопроширинный шрифт */
+code, pre {
+  color: #555555;
+  background: #f8f8f8;
+  font-family: "Courier New", monospace;
+}
+
+/* Подписи и метатеги */
+.meta, .post-tags, .post-date {
+  color: #666666;
+}
+
+/* Кнопки */
+.btn {
+  background-color: #444444;
+  color: #ffffff;
+}
+
+.btn:hover {
+  background-color: #333333;
+}
