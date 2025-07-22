@@ -29,7 +29,6 @@ params:
   dateFormat: "02/01/2006"  # Итальянский формат даты
   defaultTheme: "auto" # dark, light
   disableThemeToggle: false
-  showDate: true
   ShowReadingTime: true
   ShowShareButtons: true
   ShowPostNavLinks: true
@@ -131,7 +130,7 @@ params:
     canonicalURL: true
     openGraph:
       locale: "it_IT"
-      siteName: "Farmaci Online Italia"
+      siteName: "Farmacie Online in Italia"
       twitter:
         site: "@tuo_twitter"
         creator: "@tuo_twitter"
