@@ -23,8 +23,8 @@ params:
     
   
   author:
-    name: "Il Tuo Nome"
-    email: "tua@email.com"
+    name: "Pavel Suvorov"
+  #  email: "tua@email.com"
   
   dateFormat: "02/01/2006"  # Итальянский формат даты
   defaultTheme: "auto" # dark, light
@@ -63,7 +63,7 @@ params:
   
   # Схема для SEO
   schema:
-    organizationName: "Farmaci Online Italia"
+    organizationName: "Il Mio Blog Italiano"
     organizationLogo: "/images/logo.png"
     publisherType: "Organization"
   
@@ -130,7 +130,7 @@ params:
     canonicalURL: true
     openGraph:
       locale: "it_IT"
-      siteName: "Farmacie Online in Italia"
+      siteName: "Il Mio Blog Italiano"
       twitter:
         site: "@tuo_twitter"
         creator: "@tuo_twitter"
