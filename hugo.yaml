@@ -23,8 +23,8 @@ params:
     
   
   author:
-    name: "Il Tuo Nome"
-    email: "tua@email.com"
+    name: "Pavel Suvorov"
+  #  email: "tua@email.com"
   
   dateFormat: "02/01/2006"  # Итальянский формат даты
   defaultTheme: "auto" # dark, light
