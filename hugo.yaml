@@ -1,5 +1,5 @@
 # Основные настройки
-baseURL: "https://farmaci-online-italia.pages.dev/"
+baseURL: "https://farmaci-online-italia.pages.dev/ "
 title: "Farmaci Online in Italia"
 theme: "PaperMod"
 defaultContentLanguage: "it"
