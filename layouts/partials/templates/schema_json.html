@@ -90,7 +90,7 @@
   "image": {{ .Permalink }},
     {{- end }}
   {{- end -}}
-  "datePublished": {{ .Date }}, #.PublishDate
+  "datePublished": {{ .Date }}, 
   "dateModified": {{ .Lastmod }},
   {{- with (.Params.author | default site.Params.author) }}
   "author":
