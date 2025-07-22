@@ -1,9 +1,0 @@
-{{- if (.Param "ShowBreadCrumbs") }}
-<div class="breadcrumbs">
-  <a href="{{ "" | absLangURL }}">{{ i18n "home" | default "Home" }}</a>
-
-  {{- if .IsPage }}
-    &nbsp;»&nbsp;<span>{{ .Title }}</span>
-  {{- end }}
-</div>
-{{- end }}

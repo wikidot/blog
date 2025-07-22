@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://farmaci-online-italia.pages.dev/sitemap.xml
