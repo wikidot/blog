@@ -1,14 +1,16 @@
-name: Scheduled PubSubHubbub Ping
+name: PubSubHubbub Ping
 
 on:
-  schedule:
-    - cron: '*/30 * * * *'  # Каждые 30 минут
-  workflow_dispatch:         # Ручной запуск
-
+  push:
+    branches: [main]
+    
 jobs:
   ping:
     runs-on: ubuntu-latest
     steps:
+      - name: Wait for Cloudflare deployment
+        run: sleep 300  # 5 минут задержки
+        
       - name: Ping hubs
         run: |
           HUBS=(
@@ -19,12 +21,17 @@ jobs:
           
           for HUB in "${HUBS[@]}"; do
             echo "🔄 Pinging $HUB..."
-            curl -X POST "$HUB" \
+            STATUS=$(curl -X POST "$HUB" \
               -d "hub.mode=publish" \
               -d "hub.url=$RSS_FEED_URL" \
               -H "Content-Type: application/x-www-form-urlencoded" \
-              --retry 2
-            echo -e "\n---"
+              -s -o /dev/null -w "%{http_code}")
+            
+            if [ "$STATUS" -eq 200 ] || [ "$STATUS" -eq 204 ]; then
+              echo "✅ Success! Status: $STATUS"
+            else
+              echo "❌ Error! Status: $STATUS"
+              exit 1
+            fi
+            echo "---"
           done
-          
-          echo "✅ All hubs notified successfully"
