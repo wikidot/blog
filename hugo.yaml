@@ -198,6 +198,8 @@ outputs:
   page:
     - "HTML"
 
+mainSections: ["posts"] # Укажите ваши ключевые разделы
+
 # Настройки разметки
 markup:
   highlight:

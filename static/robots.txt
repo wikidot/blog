@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /search/
+Disallow: /admin/
+
+Sitemap: https://farmaci-online-italia.pages.dev/sitemap.xml
