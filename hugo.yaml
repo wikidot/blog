@@ -44,6 +44,12 @@ params:
   hideSummary: false
   showtoc: true
   tocopen: false
+  ShowFullTextinRSS: true
+  rssFullContent: true    # Дублирующий параметр для совместимости
+  rssExcludeTypes:        # Исключить типы страниц
+    - "privacy"
+    - "about"
+    - "legal"
   
   # Cookie и аналитика
   enableCookieConsent: true
@@ -197,6 +203,9 @@ outputs:
     - "JSON"
   page:
     - "HTML"
+
+  
+    
 
 mainSections: ["posts"] # Укажите ваши ключевые разделы
 
