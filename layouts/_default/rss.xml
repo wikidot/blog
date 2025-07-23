@@ -52,7 +52,7 @@
     <image>
       <title>{{ site.Title }}</title>
       <url>{{ index . 0 | absURL }}</url>
-      <link>{{ index . 0 | absURL }}</link>
+      <link>{{ site.BaseURL }}</link>
     </image>
     {{- end }}
     <generator>Hugo -- {{ hugo.Version }}</generator>
