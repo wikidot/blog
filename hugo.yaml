@@ -228,5 +228,5 @@ buildDrafts: false
 buildFuture: false
 buildExpired: false
 enableGitInfo: false
-googleAnalytics: ""
+googleAnalytics: "GTM-W9SX2KGX"
 disqusShortname: ""
