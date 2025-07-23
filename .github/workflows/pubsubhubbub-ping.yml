@@ -1,0 +1,35 @@
+# .github/workflows/pubsubhubbub-ping.yml
+name: PubSubHubbub Ping Notification
+
+on:
+  workflow_run:
+    workflows: ["Cloudflare Pages CI"]
+    branches: [main]  # Укажите вашу основную ветку
+    types: [completed]
+
+jobs:
+  ping-hubs:
+    if: >-
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.event == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping PubSubHubbub hubs
+        run: |
+          HUBS=(
+            "https://pubsubhubbub.appspot.com/publish"
+            "https://pubsubhubbub.superfeedr.com"
+          )
+          RSS_FEED_URL="https://farmaci-online-italia.pages.dev/index.xml"
+          
+          for HUB in "${HUBS[@]}"; do
+            echo "🔄 Pinging $HUB..."
+            curl -X POST "$HUB" \
+              -d "hub.mode=publish" \
+              -d "hub.url=$RSS_FEED_URL" \
+              -H "Content-Type: application/x-www-form-urlencoded" \
+              --retry 2
+            echo -e "\n---"
+          done
+          
+          echo "✅ All hubs notified successfully"
