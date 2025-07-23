@@ -50,7 +50,7 @@
     <description>Recent content {{ if ne .Title site.Title }}{{ with .Title }}in {{ . }} {{ end }}{{ end }}on {{ site.Title }}</description>
     {{- with site.Params.images }}
     <image>
-      <title>{{ site.Title }}</title>
+      <title>{{ site.Title | html }}</title>
       <url>{{ index . 0 | absURL }}</url>
       <link>{{ site.BaseURL }}</link>
     </image>
@@ -59,29 +59,32 @@
     <language>{{ site.Language.LanguageCode }}</language>{{ with $authorEmail }}
     <managingEditor>{{.}}{{ with $authorName }} ({{ . }}){{ end }}</managingEditor>{{ end }}{{ with $authorEmail }}
     <webMaster>{{ . }}{{ with $authorName }} ({{ . }}){{ end }}</webMaster>{{ end }}{{ with site.Copyright }}
-    <copyright>{{ . | markdownify | plainify | strings.TrimPrefix "© " }}</copyright>{{ end }}{{ if not .Date.IsZero }}
-    <lastBuildDate>{{ (index $pages.ByLastmod.Reverse 0).Lastmod.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>{{ end }}
+    <copyright>{{ . | markdownify | plainify | strings.TrimPrefix "© " }}</copyright>{{ end }}
+    <lastBuildDate>{{ now.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>
     {{- with .OutputFormats.Get "RSS" }}
     {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
     {{- end }}
     {{- range $pages }}
-    {{- if and (ne .Layout `search`) (ne .Layout `archives`) }}
+    {{- if and (ne .Layout `search`) (ne .Layout `archives`) (not .Params.rssExclude) }}
     <item>
       <title>{{ .Title }}</title>
       <link>{{ .Permalink }}</link>
       <pubDate>{{ .PublishDate.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
       {{- with $authorEmail }}<author>{{ . }}{{ with $authorName }} ({{ . }}){{ end }}</author>{{ end }}
       <guid>{{ .Permalink }}</guid>
-      
-      <!-- ВАЖНОЕ ИЗМЕНЕНИЕ: ПОЛНЫЙ КОНТЕНТ СТАТЬИ -->
       <description>{{ with .Description | html }}{{ . }}{{ else }}{{ .Summary | html }}{{ end -}}</description>
-      <content:encoded>{{ printf "<![CDATA[%s]]>" .Content | safeHTML }}</content:encoded>
-      
-      {{- if .Params.categories }}
-      <category>{{ delimit .Params.categories ", " }}</category>
+      {{- if and site.Params.ShowFullTextinRSS .Content }}
+      <content:encoded>{{ (printf "<![CDATA[%s]]>" .Content) | safeHTML }}</content:encoded>
       {{- end }}
-      {{- if .Params.tags }}
-      <category>{{ delimit .Params.tags ", " }}</category>
+      
+      <!-- Категории с указанием домена -->
+      {{- range .Params.categories }}
+      <category domain="{{ site.BaseURL }}categories/">{{ . }}</category>
+      {{- end }}
+      
+      <!-- Теги с указанием домена -->
+      {{- range .Params.tags }}
+      <category domain="{{ site.BaseURL }}tags/">{{ . }}</category>
       {{- end }}
     </item>
     {{- end }}
