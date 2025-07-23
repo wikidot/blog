@@ -1,18 +1,19 @@
-# .github/workflows/pubsubhubbub-ping.yml
 name: PubSubHubbub Ping Notification
 
 on:
   workflow_run:
-    workflows: ["Cloudflare Pages CI"]
-    branches: [main]  # Укажите вашу основную ветку
-    types: [completed]
+    workflows: ["pages-build-deployment"]  # ИЗМЕНИЛИ НА ФАКТИЧЕСКОЕ ИМЯ
+    branches: [main]
+    types: 
+      - completed
 
 jobs:
   ping-hubs:
-    if: >-
+    if: |
       github.event.workflow_run.conclusion == 'success' &&
       github.event.workflow_run.event == 'push'
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - name: Ping PubSubHubbub hubs
         run: |
@@ -28,7 +29,8 @@ jobs:
               -d "hub.mode=publish" \
               -d "hub.url=$RSS_FEED_URL" \
               -H "Content-Type: application/x-www-form-urlencoded" \
-              --retry 2
+              --retry 2 \
+              --retry-delay 3
             echo -e "\n---"
           done
           
