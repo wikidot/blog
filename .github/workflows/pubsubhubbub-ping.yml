@@ -1,21 +1,15 @@
-name: PubSubHubbub Ping Notification
+name: Scheduled PubSubHubbub Ping
 
 on:
-  workflow_run:
-    workflows: ["pages-build-deployment"]  # ИЗМЕНИЛИ НА ФАКТИЧЕСКОЕ ИМЯ
-    branches: [main]
-    types: 
-      - completed
+  schedule:
+    - cron: '*/30 * * * *'  # Каждые 30 минут
+  workflow_dispatch:         # Ручной запуск
 
 jobs:
-  ping-hubs:
-    if: |
-      github.event.workflow_run.conclusion == 'success' &&
-      github.event.workflow_run.event == 'push'
+  ping:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
     steps:
-      - name: Ping PubSubHubbub hubs
+      - name: Ping hubs
         run: |
           HUBS=(
             "https://pubsubhubbub.appspot.com/publish"
@@ -29,8 +23,7 @@ jobs:
               -d "hub.mode=publish" \
               -d "hub.url=$RSS_FEED_URL" \
               -H "Content-Type: application/x-www-form-urlencoded" \
-              --retry 2 \
-              --retry-delay 3
+              --retry 2
             echo -e "\n---"
           done
           
