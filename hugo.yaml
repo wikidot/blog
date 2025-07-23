@@ -230,3 +230,5 @@ buildExpired: false
 enableGitInfo: false
 googleAnalytics: "GTM-W9SX2KGX"
 disqusShortname: ""
+build:
+  noHTTPCache: true
