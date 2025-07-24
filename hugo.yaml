@@ -230,3 +230,10 @@ buildExpired: false
 enableGitInfo: false
 googleAnalytics: ""
 disqusShortname: ""
+
+build:
+  writeStats: true  # Критически важно!
+sitemap:
+  changefreq: weekly
+  priority: 0.5
+  filename: "sitemap.xml"

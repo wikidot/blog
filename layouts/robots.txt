@@ -5,4 +5,4 @@ Disallow: /categories/
 {{- else }}
 Disallow: /
 {{- end }}
-Sitemap: {{ "sitemap.xml" | absURL }}
+Sitemap: {{ .Site.BaseURL }}sitemap.xml
