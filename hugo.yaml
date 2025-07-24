@@ -197,7 +197,7 @@ outputs:
     - "JSON"
   page:
     - "HTML"
-    
+
 outputFormats:
   ROBOTS:
     baseName: robots
@@ -238,7 +238,17 @@ googleAnalytics: ""
 disqusShortname: ""
 
 build:
-  writeStats: true  # Критически важно!
+  useResourceCacheWhen: fallback  # Решает проблемы с кешированием
+
+imaging:
+  cacheDir: "/tmp/hugo_img_cache"  # Для Cloudflare
+
+caches:
+  assets:
+    dir: "/tmp/hugo_assets_cache"
+    maxAge: -1
+
+
 sitemap:
   changefreq: weekly
   priority: 0.5
