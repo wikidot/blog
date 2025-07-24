@@ -2,6 +2,8 @@
 baseURL: "https://farmaci-online-italia.pages.dev/"
 title: "Farmacie Online in Italia"
 theme: "PaperMod"
+disableKinds:
+  - sitemap
 disableLastModTime: false
 defaultContentLanguage: "it"
 languageCode: "it-IT"
