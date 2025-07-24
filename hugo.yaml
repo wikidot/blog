@@ -17,11 +17,10 @@ params:
   title: "Farmacie Online in Italia"
   description: "Un blog personale su temi italiani"
   keywords: 
-      - "Farmaci senza ricetta online"
-      - "Acquisto farmacie sicuro"
-      - "Farmacie online"
+    - "Farmaci senza ricetta online"
+    - "Acquisto farmacie sicuro"
+    - "Farmacie online"
     
-  
   author:
     name: "Il Tuo Nome"
     email: "tua@email.com"
@@ -118,9 +117,6 @@ params:
       - "summary"
       - "content"
   
-  # Основные разделы
-  
-  
   # SEO-оптимизация
   seo:
     googleSiteVerify: "your_google_verify_code"
@@ -180,14 +176,6 @@ menu:
       params:
         icon: "search"
         schema: "SearchResultsPage"
-        
-#    - identifier: "about"
-#     name: "Chi Sono"
-#     url: "/about/"
-#      weight: 50
-#     params:
-#       icon: "user"
-#       schema: "AboutPage"
 
 # Настройки вывода
 outputs:
@@ -198,11 +186,11 @@ outputs:
   page:
     - "HTML"
 
-outputFormats:
-  ROBOTS:
-    baseName: robots
-  SITEMAP:
-    baseName: sitemap
+# Генерация sitemap.xml
+sitemap:
+  filename: "sitemap.xml"
+  changefreq: weekly
+  priority: 0.5
 
 # Настройки разметки
 markup:
@@ -247,9 +235,3 @@ caches:
   assets:
     dir: "/tmp/hugo_assets_cache"
     maxAge: -1
-
-
-sitemap:
-  changefreq: weekly
-  priority: 0.5
-  filename: "sitemap.xml"
