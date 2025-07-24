@@ -1,4 +1,4 @@
 User-agent: *
-Disallow: /page/
-Disallow: /categories/
+Allow: /
+
 Sitemap: https://farmaci-online-italia.pages.dev/sitemap.xml
