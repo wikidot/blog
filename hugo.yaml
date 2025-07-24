@@ -22,7 +22,7 @@ params:
     - "Farmaci senza ricetta online"
     - "Acquisto farmacie sicuro"
     - "Farmacie online"
-    
+  
   author:
     name: "Il Tuo Nome"
     email: "tua@email.com"
@@ -191,7 +191,7 @@ outputs:
 
 # Генерация sitemap.xml
 sitemap:
-  filename: "sitemap.xml"
+  filename: ""
   changefreq: weekly
   priority: 0.5
 
