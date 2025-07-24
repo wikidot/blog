@@ -15,6 +15,7 @@ permalinks:
 # Основные параметры
 params:
   env: "production"
+  enableSEO: true
   title: "Farmacie Online in Italia"
   description: "Un blog personale su temi italiani"
   keywords: 
