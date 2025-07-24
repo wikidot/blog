@@ -1,10 +1,3 @@
-{{ if hugo.IsProduction }}
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W9SX2KGX"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-{{ end }}
-
 {{- /* theme-toggle is enabled */}}
 {{- if (not site.Params.disableThemeToggle) }}
 {{- /* theme is light */}}
@@ -13,6 +6,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     if (localStorage.getItem("pref-theme") === "dark") {
         document.body.classList.add('dark');
     }
+
 </script>
 {{- /* theme is dark */}}
 {{- else if (eq site.Params.defaultTheme "dark") }}
@@ -20,6 +14,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     if (localStorage.getItem("pref-theme") === "light") {
         document.body.classList.remove('dark')
     }
+
 </script>
 {{- else }}
 {{- /* theme is auto */}}
@@ -31,6 +26,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.body.classList.add('dark');
     }
+
 </script>
 {{- end }}
 {{- /* theme-toggle is disabled and theme is auto */}}
@@ -39,6 +35,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.body.classList.add('dark');
     }
+
 </script>
 {{- end }}
 
