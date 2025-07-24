@@ -1,5 +1,5 @@
 # Основные настройки
-baseURL: "https://farmaci-online-italia.pages.dev/ "
+baseURL: "https://farmaci-online-italia.pages.dev/"
 title: "Farmacie Online in Italia"
 theme: "PaperMod"
 defaultContentLanguage: "it"
@@ -23,8 +23,8 @@ params:
     
   
   author:
-    name: "Pavel Suvorov"
-    email: "p81955823@gmail.com"
+    name: "Il Tuo Nome"
+    email: "tua@email.com"
   
   dateFormat: "02/01/2006"  # Итальянский формат даты
   defaultTheme: "auto" # dark, light
@@ -44,30 +44,22 @@ params:
   hideSummary: false
   showtoc: true
   tocopen: false
-  ShowFullTextinRSS: true
-  rssFullContent: true    # Дублирующий параметр для совместимости
-  rssExcludeTypes:        # Исключить типы страниц
-    - "privacy"
-    - "about"
-    - "legal"
   
   # Cookie и аналитика
   enableCookieConsent: true
   enableGoogleAnalytics: true
   googleAnalyticsID: "G-XXXXXXXXXX"
-
-
   
   # Изображения
-  # images:
-  # - "/images/og-image.jpg"
+  images:
+    - "/images/og-image.jpg"
   
   assets:
     favicon: "/favicon.ico"
     favicon16x16: "/favicon-16x16.png"
     favicon32x32: "/favicon-32x32.png"
     apple_touch_icon: "/apple-touch-icon.png"
-    
+    safari_pinned_tab: "/safari-pinned-tab.svg"
   
   # Схема для SEO
   schema:
@@ -206,11 +198,6 @@ outputs:
   page:
     - "HTML"
 
-  
-    
-
-mainSections: ["posts"] # Укажите ваши ключевые разделы
-
 # Настройки разметки
 markup:
   highlight:
@@ -241,7 +228,5 @@ buildDrafts: false
 buildFuture: false
 buildExpired: false
 enableGitInfo: false
-googleAnalytics: "GTM-W9SX2KGX"
+googleAnalytics: ""
 disqusShortname: ""
-build:
-  noHTTPCache: true
