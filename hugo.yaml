@@ -191,7 +191,7 @@ outputs:
 
 # Генерация sitemap.xml
 sitemap:
-  filename: ""
+  filename: "sitemap.xml"
   changefreq: weekly
   priority: 0.5
 
