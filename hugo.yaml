@@ -1,5 +1,5 @@
 # Основные настройки
-baseURL: "https://farmaci-online-italia.pages.dev/"
+baseURL: "https://farmaci-online-italia.pages.dev/ "
 title: "Farmacie Online in Italia"
 theme: "PaperMod"
 defaultContentLanguage: "it"
@@ -55,6 +55,8 @@ params:
   enableCookieConsent: true
   enableGoogleAnalytics: true
   googleAnalyticsID: "G-XXXXXXXXXX"
+
+
   
   # Изображения
   # images:
@@ -243,3 +245,11 @@ googleAnalytics: "GTM-W9SX2KGX"
 disqusShortname: ""
 build:
   noHTTPCache: true
+
+build:
+  writeStats: true  # Для генерации sitemap
+
+sitemap:
+  changefreq: weekly
+  priority: 0.5
+  filename: sitemap.xml

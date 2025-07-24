@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /page/
+Disallow: /categories/
+{{ if .Site.IsServer }}Disallow: /{{ end }}
+Sitemap: {{ .Site.BaseURL }}/sitemap.xml
