@@ -246,10 +246,3 @@ disqusShortname: ""
 build:
   noHTTPCache: true
 
-build:
-  writeStats: true  # Для генерации sitemap
-
-sitemap:
-  changefreq: weekly
-  priority: 0.5
-  filename: sitemap.xml
