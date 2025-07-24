@@ -26,7 +26,8 @@ params:
     name: "Il Tuo Nome"
     email: "tua@email.com"
   
-  dateFormat: "02/01/2006"  # Итальянский формат даты
+
+  dateFormat: "02/01/2006"  # Итальянский формат 
   defaultTheme: "auto" # dark, light
   disableThemeToggle: false
   ShowReadingTime: true
