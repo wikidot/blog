@@ -1,27 +1,39 @@
 <!DOCTYPE html>
-<html lang="{{ site.LanguageCode }}" dir="ltr">
+<html lang="{{ site.LanguageCode }}">
 <head>
-    {{- partial "head.html" . -}}
-    {{- partialCached "extend_head.html" . -}}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }} | {{ site.Title }}</title>
+    {{ if .Site.Params.enableCookieConsent }}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0-rc.17/dist/cookieconsent.css">
+    {{ end }}
 </head>
-
-<body class="
-{{- if (or (ne .Kind `page` ) (eq .Layout `archives`) (eq .Layout `search`)) -}}
-{{- print "list" -}}
-{{- end -}}
-{{- if eq site.Params.defaultTheme `dark` -}}
-{{- print " dark" }}
-{{- end -}}
-" id="top">
-    {{- partialCached "header.html" . .Page -}}
-    <main class="main">
-        {{- block "main" . }}{{ end }}
-    </main>
-    {{ partialCached "footer.html" . .Layout .Kind (.Param "hideFooter") (.Param "ShowCodeCopyButtons") -}}
-
+<body>
+    {{ block "content" . }}{{ end }}
+    
     {{ if .Site.Params.enableCookieConsent }}
     <script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0-rc.17/dist/cookieconsent.umd.js"></script>
-    <script src="{{ `js/consent.js` | relURL }}"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const cc = initCookieConsent();
+        
+        cc.run({
+            current_lang: 'it',
+            autoclear_cookies: true,
+            
+            languages: {
+                'it': {
+                    consent_modal: {
+                        title: 'Test Cookie!',
+                        description: 'Questo è un test semplice...',
+                        primary_btn: { text: 'Accetta' },
+                        secondary_btn: { text: 'Rifiuta' }
+                    }
+                }
+            }
+        });
+    });
+    </script>
     {{ end }}
 </body>
 </html>
