@@ -6,9 +6,9 @@ document.addEventListener('DOMContentLoaded', function() {
     autoclear_cookies: true,
     page_scripts: true,
 
-    // Инициализация Google Analytics после согласия
     onAccept: function (cookie) {
       if (cookie.categories.includes('analytics')) {
+        // Инициализация Google Analytics
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
