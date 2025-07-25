@@ -23,16 +23,8 @@
     </main>
     {{ partialCached "footer.html" . .Layout .Kind (.Param "hideFooter") (.Param "ShowCodeCopyButtons") -}}
 
-    {{ if .Site.Params.enableCookieConsent }}
-  {{ partial "cookie-consent" . }}
-{{ end }}
-
-{{ if .Site.Params.enableCookieConsent }}
-  {{ partial "cookie-consent" . }}
-  {{ partial "cookie-manager" . }}
-{{ end }}
-
-{{ partial "google_analytics.html" . }}
+    <!-- Удаляем лишние вызовы и добавляем extend_footer -->
+    {{- partial "extend_footer.html" . -}}
 </body>
 
 </html>
