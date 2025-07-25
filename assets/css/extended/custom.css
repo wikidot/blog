@@ -54,5 +54,17 @@ code, pre {
   background-color: #333333;
 }
 
-
+:root {
+  --cc-bg: #f8f9fa;
+  --cc-text: #212529;
+  --cc-btn-primary-bg: #0d6efd;
+  --cc-btn-primary-text: #fff;
+  --cc-btn-secondary-bg: #e9ecef;
+  --cc-btn-secondary-text: #212529;
+  --cc-toggle-bg-off: #dee2e6;
+  --cc-toggle-bg-on: #86b7fe;
+  --cc-toggle-bg-readonly: #e9ecef;
+  --cc-section-border: #dee2e6;
+  --cc-cookie-category-block-bg: #e9ecef;
+}
 

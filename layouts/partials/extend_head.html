@@ -5,5 +5,13 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-2HFQLVGNKE');
+  // Инициализация Google Analytics только при согласии
+  if (document.cookie.includes('cc_cookie_analytics')) {
+    gtag('config', 'G-2HFQLVGNKE');
+  }
 </script>
+
+<!-- Подключение CSS для Cookie Consent -->
+{{ if .Site.Params.enableCookieConsent }}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0-rc.17/dist/cookieconsent.css">
+{{ end }}
