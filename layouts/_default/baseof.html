@@ -1,8 +1,12 @@
+{{- if lt hugo.Version "0.146.0" }}
+{{- errorf "=> hugo v0.146.0 or greater is required for hugo-PaperMod to build " }}
+{{- end -}}
+
 <!DOCTYPE html>
-<html lang="{{ site.LanguageCode }}" dir="ltr">
+<html lang="{{ site.Language }}" dir="{{ .Language.LanguageDirection | default "auto" }}">
+
 <head>
-    {{- partial "head.html" . -}}
-    {{- partialCached "extend_head.html" . -}}
+    {{- partial "head.html" . }}
 </head>
 
 <body class="
@@ -20,8 +24,15 @@
     {{ partialCached "footer.html" . .Layout .Kind (.Param "hideFooter") (.Param "ShowCodeCopyButtons") -}}
 
     {{ if .Site.Params.enableCookieConsent }}
-    <script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0-rc.17/dist/cookieconsent.umd.js"></script>
-    <script src="{{ `js/consent.js` | relURL }}"></script>
-    {{ end }}
+  {{ partial "cookie-consent" . }}
+{{ end }}
+
+{{ if .Site.Params.enableCookieConsent }}
+  {{ partial "cookie-consent" . }}
+  {{ partial "cookie-manager" . }}
+{{ end }}
+
+{{ partial "google_analytics.html" . }}
 </body>
+
 </html>
