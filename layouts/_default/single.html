@@ -29,22 +29,16 @@
     {{- end }}
   </header>
 
-  {{- /* ИСПРАВЛЕНО: используем if вместо with */ -}}
+  {{- /* ИСПРАВЛЕНО: убран заголовок с обложки (теперь только изображение) */ -}}
   {{- $isHidden := (.Param "cover.hiddenInSingle") | default (.Param "cover.hidden") | default false -}}
   {{- if not $isHidden -}}
     {{- if .Params.image -}}
       <div class="post-cover">
         <img src="{{ .Params.image }}" alt="{{ .Title }} — обложка" loading="lazy">
-        <div class="post-cover-title">
-          <h1>{{ .Title }}</h1>
-        </div>
       </div>
     {{- else if .Params.cover -}}
       <div class="post-cover">
         <img src="{{ .Params.cover }}" alt="{{ .Title }} — обложка" loading="lazy">
-        <div class="post-cover-title">
-          <h1>{{ .Title }}</h1>
-        </div>
       </div>
     {{- end -}}
   {{- end -}}
