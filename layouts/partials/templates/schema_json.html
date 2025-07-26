@@ -78,8 +78,8 @@
   "wordCount": {{ .WordCount }},
   "inLanguage": {{ .Language.Lang | default "it" | jsonify }},
   "image": [
-    {{- with .Params.image -}}
-      {{ . | absURL | jsonify }}
+    {{- if .Params.image -}}
+      {{ .Params.image | absURL | jsonify }}
     {{- else if .Params.cover -}}
       {{- if .Params.cover.image -}}
         {{ .Params.cover.image | absURL | jsonify }}
