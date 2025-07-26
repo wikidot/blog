@@ -78,14 +78,16 @@
   "wordCount": {{ .WordCount }},
   "inLanguage": {{ .Language.Lang | default "it" | jsonify }},
   "image": [
-    {{- if .Params.image -}}
-      {{ .Params.image | absURL | jsonify }}
-    {{- else if .Params.cover -}}
-      {{- if .Params.cover.image -}}
-        {{ .Params.cover.image | absURL | jsonify }}
+    {{- with .Params.image -}}
+      {{ . | absURL | jsonify }}
+    {{- else with .Params.cover -}}
+      {{- with .image -}}
+        {{ . | absURL | jsonify }}
+      {{- else -}}
+        {{ $.Site.BaseURL | printf "%simg/og-default.jpg" | jsonify }}
       {{- end -}}
     {{- else -}}
-      {{ printf "%s%s" .Site.BaseURL "img/og-default.jpg" | jsonify }}
+      {{ $.Site.BaseURL | printf "%simg/og-default.jpg" | jsonify }}
     {{- end -}}
   ],
   "datePublished": {{ .PublishDate.Format "2006-01-02T15:04:05-07:00" | jsonify }},
