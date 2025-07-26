@@ -1,5 +1,6 @@
 ---
 title: "Farmaci Senza Ricetta Online in Italia 2025: Tutto Quello che Devi Sapere (Prima di Cliccare ‘Acquista’)"
+image: /img/posts/image.jpg
 date: 2025-07-22T15:30:00+02:00  
 summary: "Scopri come acquistare farmaci online in Italia nel 2025 in sicurezza. Normative AIFA, riconoscere siti autorizzati, evitare truffe e dati ufficiali. Crescita del mercato a 3,1 miliardi di euro."
 draft: false

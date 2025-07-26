@@ -28,8 +28,28 @@
     </div>
     {{- end }}
   </header>
-  {{- $isHidden := (.Param "cover.hiddenInSingle") | default (.Param "cover.hidden") | default false }}
-  {{- partial "cover.html" (dict "cxt" . "IsSingle" true "isHidden" $isHidden) }}
+
+  {{- /* ЗАМЕНА: стандартная cover.html → наш кастомный блок */ -}}
+  {{- $isHidden := (.Param "cover.hiddenInSingle") | default (.Param "cover.hidden") | default false -}}
+  {{- if not $isHidden -}}
+    {{- /* Поддержка обоих вариантов: image и cover */ -}}
+    {{- with .Params.image -}}
+      <div class="post-cover">
+        <img src="{{ . }}" alt="{{ $.Title }} — обложка" loading="lazy">
+        <div class="post-cover-title">
+          <h1>{{ .Title }}</h1>
+        </div>
+      </div>
+    {{- else if .Params.cover -}}
+      <div class="post-cover">
+        <img src="{{ .Params.cover }}" alt="{{ $.Title }} — обложка" loading="lazy">
+        <div class="post-cover-title">
+          <h1>{{ .Title }}</h1>
+        </div>
+      </div>
+    {{- end -}}
+  {{- end -}}
+
   {{- if (.Param "ShowToc") }}
   {{- partial "toc.html" . }}
   {{- end }}

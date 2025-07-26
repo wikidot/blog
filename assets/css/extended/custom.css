@@ -1,4 +1,6 @@
-/* assets/css/custom.css */
+/* assets/css/extended/custom.css */
+
+/* === ОСНОВНЫЕ СТИЛИ === */
 
 /* Основной текст */
 body {
@@ -11,25 +13,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Ссылки */
-/* assets/css/custom.css */
-
 a {
   color: #0055A5;
+  border-bottom: 1px solid #0055A5;
   text-decoration: none;
-  border-bottom: 1px solid transparent;
-  padding-bottom: 2px;
-  transition: border-color 0.3s ease, color 0.3s ease;
+  transition: color 0.3s ease, border-color 0.3s ease;
 }
 
-a:hover,
-a:focus {
-  border-bottom-color: #0055A5;
-  outline: none;
-}
-
-/* Опционально: увеличение нижней границы при наведении */
 a:hover {
-  color: #003366;
+  color: #222222;
+  border-bottom-color: #222222;
+  text-decoration: underline;
 }
 
 /* Код и монопроширинный шрифт */
@@ -48,23 +42,78 @@ code, pre {
 .btn {
   background-color: #444444;
   color: #ffffff;
+  transition: background-color 0.3s ease;
 }
 
 .btn:hover {
   background-color: #333333;
+} 
+
+/* === ОБЛОЖКА С ЗАГОЛОВКОМ === */
+.post-cover {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  margin: 0 0 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-:root {
-  --cc-bg: #f8f9fa;
-  --cc-text: #212529;
-  --cc-btn-primary-bg: #0d6efd;
-  --cc-btn-primary-text: #fff;
-  --cc-btn-secondary-bg: #e9ecef;
-  --cc-btn-secondary-text: #212529;
-  --cc-toggle-bg-off: #dee2e6;
-  --cc-toggle-bg-on: #86b7fe;
-  --cc-toggle-bg-readonly: #e9ecef;
-  --cc-section-border: #dee2e6;
-  --cc-cookie-category-block-bg: #e9ecef;
+.post-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.85);
+  transition: transform 0.3s ease;
 }
 
+.post-cover:hover img {
+  transform: scale(1.02);
+}
+
+.post-cover-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  padding: 1.5rem;
+  text-align: center;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.post-cover-title h1 {
+  margin: 0;
+  font-size: 2.8rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: white;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+  letter-spacing: -0.5px;
+}
+
+/* Адаптация под твой синий акцент (#0055A5) */
+.post-cover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom, 
+    rgba(0, 0, 0, 0.1), 
+    rgba(0, 85, 165, 0.7)
+  );
+  z-index: 1;
+}
+
+/* Для мобильных */
+@media (max-width: 768px) {
+  .post-cover-title h1 {
+    font-size: 2rem;
+    padding: 0 10px;
+  }
+}
